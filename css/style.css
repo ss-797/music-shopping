@@ -1,0 +1,278 @@
+.container{
+  width: 1100px;
+  margin: 0 auto;
+}
+#header{
+  width: 100%;
+  height: 73px;
+  background: #fff;
+}
+.logo>a{
+    display: block;
+    width: 290px;
+    height: 70px;
+    background: url(../img/logo.jpg) no-repeat;
+    text-indent: -999px;
+    text-decoration: none;
+    margin-top: 15px;
+    float: left;
+}
+.search{
+  display: block;
+  float: left;
+  width: 300px;
+  height: 69px;
+  padding-top: 1px;
+  margin-left: 320px;
+}
+.search form{
+  width: 100%;
+  height: 34px;
+  margin-top: 15px;
+  background-position: 0px -0px;
+  border: 1px solid #d9d9d9;
+  border-radius: 20px ;
+  background: url(../img/fdj.jpg)no-repeat;
+  background-position: 10px  10px;
+}
+.search form input{
+  width: 80%;
+  margin: 10px 0 0 34px;
+   border: 0;    /*表单自带框 设置为零后隐藏 */
+  outline: none
+}
+.Cart{
+  width: 42px;
+  height: 42px;
+  float: left;
+  position: relative;
+  margin: 17px 0 0 41px;
+}
+.Cart a{
+  display: block;
+  width: 42px;
+  height: 42px;
+  background: url(../img/modules.png) no-repeat 0 9999px;
+  background-position: -110px -160px;
+  cursor: pointer;
+}
+.Cart span{
+  display: block;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  font-size: 10px;
+  background: url(../img/modules.png) no-repeat;
+  background-position: -156px -158px;
+  position: absolute;
+  left: 24px;
+  top: -5px;
+}
+.user{
+  float: left;
+  width: 62px;
+  height: 36px;
+  margin: 15px 0 0 38px;
+  background: url(../img/arrow.png) no-repeat right center;
+  position: relative;
+  cursor: pointer;
+  z-index: 99;
+}
+#login{
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.showUl{
+  position: absolute;
+  top: 54px;
+  left: -61px;
+  width: 160px;
+  height: auto;
+  box-shadow: 0 4px 7px #555;
+  display: none;
+  z-index: 999;
+}
+.showUl li:hover a{
+  color: blue;
+}
+.user i{
+  position: absolute;
+  top: 35px;
+  left: -62px;
+  width: 160px;
+  height: 18px;
+  background: url(../img/modules.png) no-repeat ;
+  background-position: 0px -128px;
+  display: none;
+  z-index: 999;
+}
+.user:hover .showUl{
+display: block;
+
+}
+.user:hover i{
+display: block;
+}
+.user ul li a{
+    padding-left: 24px;
+    font-size: 12px;
+    color: #333;
+    background-color: #fff;
+    display: block;
+    width: 134px;
+    height: 40px;
+    line-height: 40px;
+}
+
+#banner{
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  position: relative;
+}
+
+.homenav{
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.hometab{
+  width: 100%;
+  height: 80px;
+}
+.hometab li{
+  float: left;
+  width: 275px;
+  height: 80px;
+}
+.hometab li a {
+  float: left;
+  width: 250px;
+  padding: 0 10px;
+  height: 80px;
+  text-align: center;
+  font-size: 0;
+}
+.hometab li img{
+  display: inline-block;
+    width: 48px;
+    height: 48px;
+    vertical-align: top;
+    padding-top: 16px;
+}
+.hometab li span{
+  display: inline-block;
+  max-width: 190px;
+  height: 80px;
+  padding-left: 12px;
+  line-height: 80px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+}
+.line{
+  display: inline-block;
+  height: 48px;
+  width: 1px;
+  margin: 16px 0 16px 0;
+  background-color: #000000;
+  filter: alpha(opacity=10);
+  -moz-opacity: 0.1;
+  opacity: 0.1;
+}
+.recommend h2{
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+}
+.re-list ul{
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+}
+.re-list ul li{
+  float: left;
+  position: relative;
+  width: 263px;
+  height: 382px;
+  padding:0 6px;
+}
+
+.re-bot{
+  text-align: center;
+}
+.re-bot h3{
+  font-size: 14px;
+    line-height: 18px;
+    font-weight: normal;
+    color: #333;
+}
+.re-bot h3 span{
+  overflow: hidden;
+  box-sizing: border-box;
+  line-height: 19px;
+  padding: 0 4px;
+  border-radius: 1px;
+  color: #d74d45;
+  font-size: 12px;
+  border: 1px solid #d74d45;
+}
+.re-bot h3 a{
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+}
+.re-bot h3 a:hover{
+  text-decoration:underline
+}
+.re-bot h3 p{
+  font-size: 16px;
+  color: #d33a31;
+}
+.re-bot h3 p em{
+  font-size: 16px;
+  color: #d33a31;
+  font-style: normal;
+  text-align: left;
+  font-size: inherit;
+}
+.m-wrap{
+  width: 60px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  background: #fff;
+  margin-top: 0px;
+  text-align: center;
+  z-index: 9999;
+}
+
+.sc{
+  position: absolute;
+  top: 645px;
+  left: 1228px;
+}
+.m-item{
+  display: block;
+    height: 58px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e5e5e5;
+    line-height: 1.5;
+    color: #666666;
+}
+.m-back {
+  cursor: pointer;
+  height: 35px;
+  border: none;
+  background: url(../img/totop.png)no-repeat;
+  background-position: -70px -0px;
+}
+
+.se{
+  position: fixed; 
+  top : 150px;
+  left : 1228px;
+}

@@ -1,0 +1,39 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select,figure,figcaption{
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    font: 14px "Microsoft YaHei","Arial";
+}
+h1,h2,h3,h4,h5,h6,b,strong{
+    font-weight: normal;
+    font-size: 100%;
+}
+em,i{
+    font-style: normal;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    color:#6d6d6d;
+    text-decoration: none;
+}
+input{
+    outline: none;
+}
+img{
+    vertical-align: middle;
+}
+/* 万能清除浮动法 */
+.clearfix{
+    *zoom: 1; /*解决IE兼容 */
+}
+.clearfix::after{
+    content: ' ';
+    display:block;
+    height:0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+}
