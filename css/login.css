@@ -26,6 +26,9 @@
   text-align: center;
   font-size: 25.6px;
 }
+.l-verification{
+  overflow: hidden;
+}
 .l-left{
   width: 258px;
   height: 258px;

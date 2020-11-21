@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>登陆页面</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/login.css">
 </head>
@@ -20,6 +20,7 @@
     <span class="header-text">
       <span>网易云帐号登录</span>
     </span>
+    
   </div>
 
   <div class="l-verification container">
@@ -29,11 +30,12 @@
     <div class="l-center"></div>
     <div class="l-right">
 
-     <form action="">
-      <span><input type="text"  autocomplete="off" maxlength="150" placeholder="手机号/邮件地址/华为号" id="username"></span>
+     <!-- <form action="./data/login.php" > -->
+      <span><input type="text"  autocomplete="off" maxlength="150" placeholder="手机号 / 邮件地址" id="username" name="user"></span>
 
-      <span><input type="password" ncopy="return false;" autocomplete="off" maxlength="32" placeholder="密码"name="" id="password"></span>
-     </form>
+      <span><input type="password" ncopy="return false;" autocomplete="off" maxlength="32" placeholder="密码"name="" id="password" name="password"></span>
+
+     <!-- </form> -->
      <div class="l-btn">
        <span>登陆</span>
      </div>
@@ -41,5 +43,7 @@
 
     </div>
   </div>
+  <script src="../tool/jquery.min.js"></script>
+  <script src="./js/login.js"></script>
 </body>
 </html>
