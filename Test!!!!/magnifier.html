@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .main {
+        width: 1200px;
+        height: 1000px;
+        margin: 20px auto 0;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .minBox {
+        float: left;
+        width: 400px;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .minBox img {
+        width: 400px;
+        height: 400px;
+        display: block;
+    }
+    
+    .minBox .mask {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        opacity: 0.4;
+        position: absolute;
+        left: 0;
+        top: 0;
+        cursor: move;
+        display: none;
+    }
+    
+    .content {
+        float: left;
+        margin-left: 20px;
+    }
+    
+    .content img {
+        float: left;
+        width: 800px;
+        opacity: 0.4;
+        margin-left: 20px;
+    }
+    
+    .maxBox {
+        width: 600px;
+        height: 600px;
+        position: absolute;
+        top: 0;
+        left: 450px;
+        overflow: hidden;
+        display: none;
+    }
+    
+    .maxBox img {
+        width: 1200px;
+        height: 1200px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: pink;
+    }
+</style>
+
+<body>
+    <div class="wrap">
+        <div class="main">
+            <div class="minBox">
+                <img src="../img/secondary1.jpg" alt="">
+                <div class="mask"></div>
+            </div>
+            <!--             <div class="content">
+                <img src="../images/3.jpg" alt="">
+            </div> -->
+            <div class="maxBox">
+                <img src="../img/big1" alt="">
+                <!-- <img src="../images/b2s.jpg" alt=""> -->
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- <script src="./js.js"></script>   原生 -->
+<script src="../../tool/jquery.min.js"></script>
+<script src="./jq.js"></script>
+</html>
