@@ -26,33 +26,23 @@ addStr+=`<li>
       $('.content').html(addStr)
     }
   })
+
   $('.content').on('click', 'li', function () {
     var code = $(this).find('em').attr('code')
-    if (localStorage.getItem("goods")) {
-      var goodsArr = JSON.parse(localStorage.getItem("goods"))
+    console.log(code);
+    if (localStorage.getItem("wares")) {
+      var waresArr = JSON.parse(localStorage.getItem("wares"))
     } else {
-      var goodsArr = []
+      var waresArr = []
     }
 
-    goodsArr.unshift({code:code})
-    localStorage.setItem("goods", JSON.stringify(goodsArr))
+    waresArr.unshift({code:code})
+    localStorage.setItem("wares", JSON.stringify(waresArr))
+
+    location.href = './Mu-details.html'
   })
 
-
-
-
-
-
-
-
-
-
-
-
-
 })
-
-
 
 
 // scroll顶部小火箭
@@ -75,7 +65,7 @@ $(".m-back").click(function () {
 //   }
 // }
 
-// jQuery方法
+// jQuery方法 固定导航栏
 $(window).scroll(function () {
   var s = $(window).scrollTop()
   if (s >= 500) {
@@ -84,4 +74,7 @@ $(window).scroll(function () {
     $(".m-wrap").removeClass('se').addClass("sc")
   }
 })
+
+
+
 

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>京东商品</title>
+		<style>
+			#all{
+				position: relative;
+				margin-left: 200px;
+			}
+			.little{
+				float: left;
+				margin: 10px;
+				color: transparent;
+			}
+			#main{
+				position: relative;
+				width: 350px;
+				height: 350px;
+				background-image: url(img/pics/img1-1.jpg);
+			}
+			#movediv{
+				position: absolute;
+				width: 160px;
+				height: 160px;
+				background-color: yellow;
+				opacity: 0.5;
+			}
+			#big{
+				width: 500px;
+				height: 500px;
+				position: absolute;
+				left: 400px;
+				top: 10px;
+				display: none;
+				background-image: url(img/pics/img1-1-1.jpg);
+				background-repeat: no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+		<div id="main">
+			<div id="movediv"></div>
+		</div>
+		<div>
+			<div class="little"><img src="../img/2.jpg" /></div>
+			<div class="little"><img src="../img/2.jpg" /></div>
+			<div class="little"><img src="../img/2.jpg" /></div>
+			<div class="little"><img src="../img/2.jpg" /></div>
+			<div class="little"><img src="../img/2.jpg" /></div>
+		</div>
+		<div id="big">
+			
+		</div>
+		</div>
+		<script>
+//			console.log(parseInt("123adc"));
+			var all=document.getElementById("all");
+			var littles=document.getElementsByClassName("little");
+			var main=document.getElementById("main");
+			var movediv=document.getElementById("movediv");
+			var big=document.getElementById("big");
+			for(let i=0;i<littles.length;i++){
+				littles[i].setAttribute("onclick","changeMain(this)");
+			}
+			function changeMain(obj){
+				var index=null;
+				for(var i=0;i<littles.length;i++){
+					if(littles[i]==obj){
+						index=i+1;;
+					}
+				}
+				console.log(index);
+				main.style.backgroundImage="url(img/pics/img"+index+"-1.jpg)";
+				big.style.backgroundImage="url(img/pics/img"+index+"-1-1.jpg)";
+			}
+			main.onmousemove=function(event){
+				movediv.style.display="block";
+				big.style.display="block";
+				movediv.style.top=event.clientY-movediv.offsetHeight*0.5-all.offsetTop+"px";				
+				if(event.clientY>=main.offsetHeight-movediv.offsetHeight*0.5+all.offsetTop){
+					movediv.style.top=main.offsetHeight-movediv.offsetHeight+"px";
+				}
+				if(event.clientY<=movediv.offsetHeight*0.5+all.offsetTop){
+					movediv.style.top=0+"px";
+				}
+				movediv.style.left=event.clientX-movediv.offsetWidth*0.5-all.offsetLeft+"px";
+				if(event.clientX<=movediv.offsetWidth*0.5+200){
+					movediv.style.left=0+"px";
+				}
+				if(event.clientX>=main.offsetWidth-movediv.offsetWidth*0.5+all.offsetLeft){
+					movediv.style.left=main.offsetWidth-movediv.offsetWidth+"px";
+				}				
+				big.style.backgroundPositionX=-parseInt(movediv.style.left)*8/5+"px";
+				big.style.backgroundPositionY=-parseInt(movediv.style.top)*8/5+"px";
+			}
+			main.onmouseout=function(){
+				movediv.style.display="none";
+				big.style.display="none";
+			}
+		</script>
+	</body>
+</html>

@@ -127,20 +127,6 @@ display: block;
   line-height: 40px;
 }
 
-/* .m-wrap{
-  width: 60px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  background: #fff;
-  text-align: center;
-  position: fixed;
-  left: 50%;
-  z-index: 98;
-  top: 50%;
-  width: 60px;
-  height: auto;
-  font-size: 12px;
-  background: #fff;
-} */
 .m-wrap{
   width: 60px;
   border: 1px solid rgba(0, 0, 0, 0.4);
@@ -158,11 +144,39 @@ display: block;
   display: block;
   height: 58px;
   border: 1px solid transparent;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #e5e5e5;
   line-height: 1.5;
   color: #666666;
+  overflow:hidden;
 }
+.m-item span{
+  display: block;
+  text-align: center;
+  margin-top: 13px;
+}
+.cartlg{
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin-left: 12px;
+  margin-top: -8px;
+  background: url(../img/totop.png) no-repeat;
+  background-position: 6px -64px;
+}
+.kefu{
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin-left: 12px;
+  margin-top: -8px;
+  background: url(../img/totop.png) no-repeat;
+  background-position: 6px -92px;
+}
+.shopcar , .kefu{
+  cursor: pointer;
+}
+
+
 .m-back {
   cursor: pointer;
   height: 35px;
@@ -281,23 +295,201 @@ display: block;
     background: #f9f9f9;
     border: 2px solid #fff;
 }
-
 .snav ul li.z-sel, .snav ul li:hover {
     border: 2px solid #d33a31;
 }
-
-
+.z-sel{
+  border: 2px solid #d33a31;
+}
+/* 选项区域 */
 .m-info{
   float: right;
   width: 580px;
   height: 200px;
-  background: red;
+}
+.basic {
+  position: relative;
+}
+.basic h2 {
+  line-height: 34px;
+  color: #333;
+  font-size: 24px;
+}
+.basic .price {
+  margin: 20px 0;
+  font-size: 14px;
+}
+.price .rmb {
+  font-size: 30px;
+  margin-right: 3px;
+  color: #d33a31;
+}
+.j-flag {
+  margin-right: 4px;
+  font-size: 30px;
+  color: #d33a31;
+}
+/* 消费券 */
+.m-coupons {
+  margin: 16px -16px 0px -8px;
+  border: 1px solid #fff;
+  padding: 0 7px;
+  position: relative;
+  width: 620px;
+}
+.title {
+  overflow: hidden;
+}
+.title-size{
+  float: left;
+}
+.title-color{
+  float: left;
+}
+.title-num{
+  float: left;
+}
+.cur{
+  height: 32px;
+  line-height: 30px;
+  margin-right: 30px;
+  color: #999;
+}
+.m-coupons ul {
+    position: absolute;
+    z-index: 99;
+    height: 30px;
+    left: 67px;
+    top: 0;
+    overflow: hidden;
+}
+.m-coupons ul li {
+  width: 518px;
+  height: 28px;
+  line-height: 28px;
+  background-color: #fdf5f4;
+  border: 1px solid #f8e2e0;
+  border-bottom: none;
+  z-index: 98;
+}
+.m-coupons ul li .label {
+    padding: 0 3px;
+    border: 1px solid #d33a31;
+    color: #d33a31;
+}
+.m-coupons ul li span, .m-coupons ul li a {
+  margin-left: 8px;
+    color: #328ad4;
+    cursor: pointer;
+}
+.m-coupons ul li span, .m-coupons ul li a {
+  margin-left: 8px;
+}
+.m-coupons ul:hover {
+  height: auto;
+}
+.specs{
+  display: block;
+  margin: 16px -16px 0px -8px;
+  border: 1px solid #fff;
+  padding: 0 7px;
+  position: relative;
+  overflow: hidden;
 }
 
+.s-pe{
+  overflow: hidden;
+  width: 510px;
+  float: left;
+  margin-bottom: -8px;
+}
+.s-pe li{
+  float: left;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  line-height: 27px;
+  text-align: center;
+  font-size: 12px;
+  height: 32px;
+  margin-right: 10px;
+  padding: 0 20px;
+  border: 2px solid #e5e5e5;
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+}
+.u-counter{
+  width: 132px;
+  height: 30px;
+  border: 1px solid #e5e5e5;
+  float: left;
+}
+.cut{
+  font-family: quote, "PingFang SC", "Microsoft Yahei", "Helvetica Neue", "Helvetica", "STHeitiSC-Light", "Arial", "simsun", sans-serif;
+  word-break: break-word;
+  white-space: normal;
+  font-size: 14px;
+  list-style: none;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+  float: left;
+  width: 34px;
+  height: 30px;
+  line-height: 30px;
+  border-right: 1px solid #e5e5e5;
+  }
+  .add{
+    font-size: 14px;
+    list-style: none;
+    text-align: center;
+    text-decoration: none;
+    float: right;
+    width: 34px;
+    height: 30px;
+    line-height: 30px;
+    border-left: 1px solid #e5e5e5;
+  }
+  .u-counter .tot{
+    width: 59px;
+    height: 30px;
+    display: inline-block;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .tot input{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
 
-
-
-
+  /* 购买按钮购物车 */
+  .btn-red, .btn-white {
+    display: block  ;
+    width: 170px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 30px;
+    font-size: 18px;
+    float: left;
+    text-align: center;
+  }
+  .btn-white {
+    box-sizing: border-box;
+    border: 2px solid #d33a31;
+    color: #d33a31;
+    font-size: 18px;
+    line-height: 47px;
+    margin-right: 10px;
+}
+.btn-red {
+  background-color: #d33a31;
+  color: white;
+}
 
 
 

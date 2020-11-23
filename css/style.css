@@ -248,7 +248,32 @@ display: block;
   text-align: center;
   z-index: 9999;
 }
-
+.m-item span{
+  display: block;
+  text-align: center;
+  margin-top: 13px;
+}
+.cartlg{
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin-left: 12px;
+  margin-top: -8px;
+  background: url(../img/totop.png) no-repeat;
+  background-position: 6px -64px;
+}
+.kefu{
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin-left: 12px;
+  margin-top: -8px;
+  background: url(../img/totop.png) no-repeat;
+  background-position: 6px -92px;
+}
+.shopcar , .kefu{
+  cursor: pointer;
+}
 .sc{
   position: absolute;
   top: 645px;
@@ -263,6 +288,7 @@ display: block;
     line-height: 1.5;
     color: #666666;
 }
+
 .m-back {
   cursor: pointer;
   height: 35px;
