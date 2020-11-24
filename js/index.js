@@ -35,14 +35,27 @@ addStr+=`<li>
     } else {
       var waresArr = []
     }
-
     waresArr.unshift({code:code})
     localStorage.setItem("wares", JSON.stringify(waresArr))
 
     location.href = './Mu-details.html'
   })
 
+// 获取cookie中的用户名
+  if (localStorage.getItem("user")) {
+    var userArr = JSON.parse(localStorage.getItem("user"))
+    console.log(userArr);
+    $('#login').html('<img src="./img/ayao.jpg">')
+  }
 })
+
+// 点击购物车去对应页面
+$('.shopcar').click(function () {
+  location.href = "./Mu-Cart.html"
+})
+
+
+
 
 
 // scroll顶部小火箭
@@ -74,6 +87,7 @@ $(window).scroll(function () {
     $(".m-wrap").removeClass('se').addClass("sc")
   }
 })
+
 
 
 

@@ -87,7 +87,15 @@ minBox.on('mouseleave', function () {
 $(".m-back").click(function () {
   $("html,body").stop().animate({ scrollTop: 0 }, 100);
 });
-
+  
+  
+// 获取cookie中的用户名
+if (localStorage.getItem("user")) {
+  var userArr = JSON.parse(localStorage.getItem("user"))
+  // console.log(userArr);
+  $('#login').html('<img src="./img/ayao.jpg">')
+}
+  
 // 点击去购物车页面
   $('.shopcar').on('click', function () {
     location.href = './Mu-Cart.html'
@@ -97,7 +105,7 @@ $(".m-back").click(function () {
 // 根据主页的商品跳转详情页
   
   var arr = JSON.parse(localStorage.getItem('wares'))
-  console.log(arr);
+  console.log(arr[0].code);
   // [{"code":"12"},{"code":"11"},{"code":"10"}]
   var code = arr[0].code
 
@@ -107,21 +115,31 @@ $(".m-back").click(function () {
       type: "get",
       dataType: "json",
       success: function (json) {
-        
         $.each(json, function (index, item) {
           if (item.code == code) {
-            console.log(item);
-            $('.pointer').text(item.title)
+            // console.log(item);
+            $('.pointer').html("<i></i>"+item.title)
             $('.f-ff2').text(item.title)
             $('.j-flag').text(item.price)
           }
         })
-      
       }
     })
   }
+// 加入购物车渲染购物车页面
+  // $('.buy').click(function () {
+    if (localStorage.getItem("wares")) {
+      var buysArr = JSON.parse(localStorage.getItem("wares"))
+    } else {
+      var buysArr = []
+    }
+    // waresArr.unshift({code:code})
+  console.log(buysArr[0].code);
 
 
+
+
+// })
 
 
 

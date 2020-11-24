@@ -4,8 +4,160 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>购物车页面</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/cart.css">
 </head>
 <body>
-  <h1>没写呢</h1>
+  <!-- 顶部 -->
+  <div id="header">
+    <div class="container">
+      <div class="logo">
+        <a href="https://music.163.com/">网易云商城</a>
+      </div>
+
+      <div class="search">
+        <form action="get">
+          <input type="text" class="searchbox" autocomplete="off" placeholder="i19真无线">
+        </form>
+      </div>
+
+      <div class="Cart">
+        <a href="./Mu-Cart.html"></a>
+        <span>0</span>
+      </div>
+
+      <div class="user">
+        <div id="login">登陆</div>
+        <i></i>
+        <ul class="showUl">
+          <li><a href="">手机号登陆</a></li>
+          <li><a href="">QQ号登陆</a></li>
+          <li><a href="">微信号登陆</a></li>
+          <li><a href="">微博账号登陆</a></li>
+          <li><a href="">网易邮箱登陆</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- 中间内容区域 -->
+  <div id="main">
+    <div class="container">
+        <!-- 右边浮动nav -->
+      <div class="m-wrap sc">
+        <div class="m-item"><span>查看<br>营业执照</span></div>
+        <div class="m-item"><span>100%<br>正品</span></div>
+        <div class="m-item"><span>七天无理由退货</span></div>
+        <div class="m-item"><span><i class="kefu"></i>客服</span></div>
+        <div class="m-back" data-action="top"><a href="javascript:;" class="j-totop"></a></div>
+      </div>
+
+      <!-- 标题 -->
+      <div class="m-bread">
+        <div class="block" id="headcontent">
+        <span><a href="/store/product">购物车</a></span>
+        <div id="share" class="share f-fr" data-action="share" style="cursor: pointer;">分享</div>
+        </div>
+      </div>
+      <!-- 购物车内容 -->
+      <div class="ct-Head">
+        <div class="te-gd f-left">商品</div>
+        <div class="te-pr f-left">金额</div>
+        <div class="te-num f-left">数量</div>
+        <div class="te-sub f-left">小计</div>
+        <div class="te-op f-left">操作</div>
+      </div> 
+      <div class="case">
+        <div class="allword">全部商品</div>
+        <div class="c-nm">
+          <ul>
+            <!-- 商品展示区 -->
+            <li>
+              <!-- 全选全不选 -->
+              <div class="f-left c-box"> 
+                <input type="checkbox" class="t-one">
+              </div>
+              <!-- 商品图片 -->
+              <div class="f-left c-img"> 
+                <a href="./Mu-details.html"><img src="./img/1.jpg" alt=""></a>
+              </div>
+              <!-- 商品信息 -->
+              <div class="f-left c-txt">
+                <a href="./Mu-details.html"><p>网易云音乐记忆回音系列黑白江湖圆领卫衣</p></a>
+                <p>白色 M</p>
+              </div>
+              <!-- 商品单价 -->
+              <div class="f-left c-pre">
+                ￥<i class="unit">109</i>
+              </div>
+              <!-- 增加减少 -->
+              <div class="f-left ad">
+                <a href="javascript:;" class="cut">-</a>
+                <span><input type="text" value="1"></span>
+                <a href="javascript:;" class="add">+</a>
+              </div>
+              <!-- 增加减少后的价格 -->
+              <div class="f-left c-pre">
+                <em>￥</em><em class="Total">109</em>
+              </div>
+              <!-- 删除商品 -->
+              <div class="f-left delete">
+                删除
+              </div>
+            </li>
+            <!-- 商品展示区 -->
+            <li>
+              <!-- 全选全不选 -->
+              <div class="f-left c-box"> 
+                <input type="checkbox" class="t-one">
+              </div>
+              <!-- 商品图片 -->
+              <div class="f-left c-img"> 
+                <a href="./Mu-details.html"><img src="./img/1.jpg" alt=""></a>
+              </div>
+              <!-- 商品信息 -->
+              <div class="f-left c-txt">
+                <a href="./Mu-details.html"><p>网易云音乐记忆回音系列黑白江湖圆领卫衣</p></a>
+                <p>白色 M</p>
+              </div>
+              <!-- 商品单价 -->
+              <div class="f-left c-pre">
+                ￥<i class="unit">109</i>
+              </div>
+              <!-- 增加减少 -->
+              <div class="f-left ad">
+                <a href="javascript:;" class="cut">-</a>
+                <span><input type="text" value="1"></span>
+                <a href="javascript:;" class="add">+</a>
+              </div>
+              <!-- 增加减少后的价格 -->
+              <div class="f-left c-pre">
+                <em>￥</em><em class="Total">109</em>
+              </div>
+              <!-- 删除商品 -->
+              <div class="f-left delete">
+                删除
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="g-foot">
+          <div class="ct-all f-left"><input type="checkbox" class="t-all"></div>
+          <div class="te-all f-left">全选</div>
+          <div class="te-meg f-left">已选择<em>1</em>件商品</div>
+          <div class="settlement f-right">结算</div>
+          <div class="total f-right">合计:￥<i>0.00</i></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="../tool/jquery.min.js"></script>
+  <script src="./js/cart.js"></script>
 </body>
 </html>

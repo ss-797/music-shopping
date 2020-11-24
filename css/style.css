@@ -86,6 +86,10 @@
   text-align: center;
   font-size: 14px;
 }
+#login img{
+  width: 100% ;
+  border-radius: 50%;
+}
 
 .showUl{
   position: absolute;
@@ -97,15 +101,32 @@
   display: none;
   z-index: 999;
 }
-.showUl li:hover a{
+.showUl li:hover,.showUl li:hover a{
+  background: red;
   color: blue;
 }
+.hideUl{
+  position: absolute;
+  top: 54px;
+  left: -61px;
+  width: 160px;
+  height: auto;
+  box-shadow: 0 4px 7px #555;
+  display: none;
+  z-index: 999;
+}
+.hideUl li:hover,.hideUl li:hover a{
+  background: red;
+  color: blue;
+}
+
 .user i{
   position: absolute;
   top: 35px;
   left: -62px;
   width: 160px;
   height: 18px;
+  background-color: #000;
   background: url(../img/modules.png) no-repeat ;
   background-position: 0px -128px;
   display: none;
@@ -113,7 +134,6 @@
 }
 .user:hover .showUl{
 display: block;
-
 }
 .user:hover i{
 display: block;
