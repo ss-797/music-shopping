@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <script src="../../tool/jquery.min.js"></script>
+  <script>
+    // var arr = [1,2,3]
+    // // arr.push(9)
+    // arr.unshift(9,8,7)
+    // console.log(arr);
+    // console.log($('input').length);
+    // console.log($('input').prop('checked',true).length);
+    // var arr = [{"buys":"1","num":"1"},{"buys":"2","num":"1"},{"buys":"8","num":"1"}]
+    // var arr = []
+    // console.log(arr.length);
+var a = 0
+    $('input').on('click',function(){
+
+      $('input').each(function (index,ele) {
+        // console.log(ele.checked);
+        if($(ele).prop('checked')){
+          alert(a)
+        }
+      })
+      console.log(a);
+      return a
+    })
+  </script>
+</body>
+</html>

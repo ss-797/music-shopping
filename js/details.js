@@ -15,8 +15,8 @@ $(function () {
   var mask = $('.mask')
   var img = $('.bigImg img')
 minBox.on('mousemove', function (e) {
-  var maskLeft = e.clientX - minBox.offset().left - mask.width() / 2;
-  var maskTop = e.clientY - minBox.offset().top - mask.height() / 8;
+  var maskLeft = e.pageX - minBox.offset().left - mask.width() / 2;
+  var maskTop = e.pageY - minBox.offset().top - mask.height() / 2;
 if (maskLeft < 0) {
   maskLeft = 0
 }
@@ -102,13 +102,17 @@ if (localStorage.getItem("user")) {
     // window.open("./Mu-Cart.html")
   })
 
+
 // 根据主页的商品跳转详情页
-  
+  if (localStorage.getItem("wares")) {
   var arr = JSON.parse(localStorage.getItem('wares'))
-  console.log(arr[0].code);
+  // console.log(arr[0].code);
   // [{"code":"12"},{"code":"11"},{"code":"10"}]
   var code = arr[0].code
+}
+  
 
+  
   if (!!code) {
     $.ajax({
       url: "../163-music/data/data.json",
@@ -127,23 +131,20 @@ if (localStorage.getItem("user")) {
     })
   }
 // 加入购物车渲染购物车页面
-  // $('.buy').click(function () {
+  $('.buy').click(function () {
     if (localStorage.getItem("wares")) {
-      var buysArr = JSON.parse(localStorage.getItem("wares"))
+      var waresArr = JSON.parse(localStorage.getItem("wares"))
     } else {
-      var buysArr = []
+      var waresArr = []
     }
-    // waresArr.unshift({code:code})
-  console.log(buysArr[0].code);
-
-
-
-
-// })
-
-
-
-
-
+    if (localStorage.getItem("buygoods")) {
+      var buyArr = JSON.parse(localStorage.getItem("buygoods"))
+    } else {
+      var buyArr = []
+    }
+    console.log(waresArr,buyArr);
+    buyArr.push({ buys: waresArr[0].code, num: $('.text').val() })
+    localStorage.setItem('buygoods', JSON.stringify(buyArr))
+})
 
 })

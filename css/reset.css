@@ -108,6 +108,7 @@ img{
     position: absolute;
     left: 24px;
     top: -5px;
+    color: white;
   }
   .user{
     float: left;
