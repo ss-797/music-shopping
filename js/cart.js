@@ -54,12 +54,9 @@ $(function () {
           var danjia = $(this).parent().prev().prev().find('.unit').text()
           $(this).text(shuliang*danjia)
         })
-
         carNum()
-
       }
     })
-    
   } else {
     nohasgoods()
   }
@@ -74,7 +71,9 @@ $(function () {
         goodsArr.splice(index, 1)
         return false
       }
-  })
+    })
+    carNum()
+    checkNum()
     localStorage.setItem('buygoods', JSON.stringify(goodsArr))
     // console.log(JSON.parse(localStorage.getItem("buygoods")).length);
     if (JSON.parse(localStorage.getItem("buygoods")).length == 0) {
@@ -103,6 +102,7 @@ $(function () {
   })
     localStorage.setItem('buygoods', JSON.stringify(goodsArr))
     carNum()
+    
   })
   // 加数量
   $('.c-nm').children('ul').on('click', 'li .ad .add', function () {
@@ -134,10 +134,12 @@ $(function () {
   $('.t-all').click(function () {
     if ($(this).prop('checked')) {
       allPrice();
-      $('.t-one').prop('checked',true)
+      $('.t-one').prop('checked', true)
+      checkNum()
     } else {
       $('.t-one').prop('checked', false)
       $('.total').children('i').text("0.00")
+      $('.te-meg').find('em').text(0)
     }
     // 计算全部价格
   })
@@ -160,28 +162,28 @@ $(function () {
   
 // 选中一个商品显示价格
   $('.c-nm').children('ul').on('click', 'li .t-one', function () {
-    $('.t-one').each(function (index,ele) {
-      if ($(this).prop('checked')) {
-        console.log($(this).parent().parent().find(".Total").text());
-      }
-    })
+    checkNum()
   })
 
+// 选中商品总价联动    没写出来·····
+//   $('.c-nm').children('ul').on('click', 'li .t-one', function () {
+//   $('.t-one').each(function (index,ele) {
+//     if ($(ele).prop('checked')&& $(this).parent().parent().find('.cut')) {
+//       console.log(this);
+//       $('.total').children('i').text($(this).parent().parent().find('.Total').text())
+//     }
+//   })
+// })
+  
+  
+  
+  
+  
+  
+  
 
-  
-  
-  
-  
-  
-  
-  
-  
 
 
-// 顶部小火箭
-$(".m-back").click(function () {
-  $("html,body").stop().animate({ scrollTop: 0 }, 100);
-});
 
   
   function allPrice() {
@@ -190,18 +192,18 @@ $(".m-back").click(function () {
     $('.Total').each(function (index, item) {
       allPrice += Number($(item).text())
     })
-    console.log(allPrice);
     $('.total').children('i').text(allPrice)
   }
   
-  function nohasgoods() {
   // 如果没有商品cookie 下面结算隐藏
+  function nohasgoods() {
   $('.g-foot').css('display','none')
   var nodata = '<li style="line-height: 70px; text-align: center;">购物车暂无数据！</li>'
   $('.c-nm').find('ul').html(nodata)
   alert('没有东西哟，快去败家吧~')
   }
 
+// 购物车logo显示数量
   function carNum() {
     var cNum = 0;
   $('.c-nm').children('ul').children('li').find('.ad').children('span').children('input').each(function (index, ele) {
@@ -210,13 +212,23 @@ $(".m-back").click(function () {
    $('.Cart').children('span').text(cNum)
   }
 
+  //计算选中了多少个商品
+  function checkNum() {
+    var chNum = 0
+    var ZJPrice = 0
+    $('.t-one').each(function (index, ele) {
+      if ($(ele).prop('checked')) {
+        chNum++
+        ZJPrice += Number($(this).parent().parent().find('.Total').text())
+      }
+      return chNum
+    })
+    $('.total').children('i').text(ZJPrice)
+    $('.te-meg').find('em').text(chNum)
+  }
 
-
-     
-    
-
-
-
-
-
+              // 顶部小火箭
+              $(".m-back").click(function () {
+                $("html,body").stop().animate({ scrollTop: 0 }, 100);
+              });
 })

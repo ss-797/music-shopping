@@ -4,14 +4,96 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+    .snav {
+  position: relative;
+  z-index: 1;
+  zoom: 1;
+  width: 440px;
+  height: 80px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.snav ul{
+  width: 3000px;
+  transition: 0.3s;
+}
+.snav ul li {
+    box-sizing: border-box;
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin-right: 8px;
+    background: #f9f9f9;
+    border: 2px solid #fff;
+    position: relative;
+}
+.snav ul li.z-sel, .snav ul li:hover {
+    border: 2px solid #d33a31;
+}
+.z-sel{
+  border: 2px solid #d33a31;
+}
+.box{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  float: left;
+}
+  </style>
 </head>
 <body>
   <input type="checkbox">
   <input type="checkbox">
   <input type="checkbox">
   <input type="checkbox">
+  <button>确认</button>
+  <div class="snav">
+    <ul>
+      <div class="box">
+      <li class="z-sel" index=1><img src="../img/s1.jpg" alt=""></li>
+      <li index = 2><img src="../img/s2.jpg" alt=""></li>
+      <li index = 3><img src="../img/s3.jpg" alt=""></li>
+      <li index = 4><img src="../img/s4.jpg" alt=""></li>
+      <li index = 5><img src="../img/s5.jpg" alt=""></li>
+      <li index = 6><img src="../img/s6.jpg" alt=""></li>
+      <li index = 7><img src="../img/s7.jpg" alt=""></li>
+      <li index = 8><img src="../img/s8.jpg" alt=""></li>
+      </div>
+    </ul>
+  </div>
+</div>
   <script src="../../tool/jquery.min.js"></script>
   <script>
+      var distance = 0;
+  $('.snav').on('click', function (e) {
+    if (e.clientX - $('.snav').offset().left > 0 && e.clientX - $('.snav').offset().left <= 88) {
+      distance += 180;
+      $(this).find('.box').animate({left: distance+'px'}, "fast")
+    } else if(e.clientX - $('.snav').offset().left > 88 && e.clientX - $('.snav').offset().left <= 176){
+      distance += 90;
+      $(this).find('.box').animate({left: distance+'px'}, "fast")
+    } else if(e.clientX - $('.snav').offset().left > 176 && e.clientX - $('.snav').offset().left <= 264){
+      console.log(3);
+    }else if(e.clientX - $('.snav').offset().left > 264 && e.clientX - $('.snav').offset().left <= 352){
+      distance -= 90;
+      $(this).find('.box').animate({left: distance+'px'}, "fast")
+    }else if(e.clientX - $('.snav').offset().left > 352 && e.clientX - $('.snav').offset().left <= 440){
+      distance -= 180;
+      $(this).find('.box').animate({left: distance+'px'}, "fast")
+    }
+    console.log($(this).find('.box').position('left'));
+
+  })
+
+
+
+
+
     // var arr = [1,2,3]
     // // arr.push(9)
     // arr.unshift(9,8,7)
@@ -21,17 +103,22 @@
     // var arr = [{"buys":"1","num":"1"},{"buys":"2","num":"1"},{"buys":"8","num":"1"}]
     // var arr = []
     // console.log(arr.length);
-var a = 0
-    $('input').on('click',function(){
+    // $('input').on('click',function(){
+    //   var a = 0
+    //   $('input').each(function (index,ele) {
+    //     // console.log(ele.checked);
+    //     if($(ele).prop('checked')){
+    //       a++
+    //     }
+    //     return a
+    //   })
+    //   console.log(a);
+    // })
 
-      $('input').each(function (index,ele) {
-        // console.log(ele.checked);
-        if($(ele).prop('checked')){
-          alert(a)
-        }
-      })
+var a = 0;
+    $('button').click(function(){
+      a-= 1
       console.log(a);
-      return a
     })
   </script>
 </body>

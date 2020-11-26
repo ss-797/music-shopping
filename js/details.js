@@ -1,5 +1,43 @@
 $(function () {
 
+  // 获取cookie中的用户名
+if (localStorage.getItem("user")) {
+  var userArr = JSON.parse(localStorage.getItem("user"))
+  // console.log(userArr);
+  $('#login').html('<img src="./img/ayao.jpg">')
+}
+  
+// 点击去购物车页面
+  $('.shopcar').on('click', function () {
+    location.href = './Mu-Cart.html'
+    // window.open("./Mu-Cart.html")
+  })
+
+
+// 根据主页的商品跳转详情页
+  if (localStorage.getItem("wares")) {
+  var arr = JSON.parse(localStorage.getItem('wares'))
+  // console.log(arr[0].code);
+  // [{"code":"12"},{"code":"11"},{"code":"10"}]
+  var code = arr[0].code
+}
+if (!!code) {
+  $.ajax({
+    url: "../163-music/data/data.json",
+    type: "get",
+    dataType: "json",
+    success: function (json) {
+      $.each(json, function (index, item) {
+        if (item.code == code) {
+          // console.log(item);
+          $('.pointer').html("<i></i>"+item.title)
+          $('.f-ff2').text(item.title)
+          $('.j-flag').text(item.price)
+        }
+      })
+    }
+  })
+}
 // 放大镜图片
   var $snav = $('.snav ul')
   $snav.on('click', "li", function () {
@@ -68,8 +106,6 @@ minBox.on('mouseleave', function () {
       con = 5
       alert('限购！')
     }
-    console.log(con);
-
     $(this).prev().children('.text').val(con) 
 })
   $('.cut').on('click', function () {
@@ -83,53 +119,7 @@ minBox.on('mouseleave', function () {
     $(this).next().children('.text').val(con) 
   })
   
-// 顶部小火箭
-$(".m-back").click(function () {
-  $("html,body").stop().animate({ scrollTop: 0 }, 100);
-});
-  
-  
-// 获取cookie中的用户名
-if (localStorage.getItem("user")) {
-  var userArr = JSON.parse(localStorage.getItem("user"))
-  // console.log(userArr);
-  $('#login').html('<img src="./img/ayao.jpg">')
-}
-  
-// 点击去购物车页面
-  $('.shopcar').on('click', function () {
-    location.href = './Mu-Cart.html'
-    // window.open("./Mu-Cart.html")
-  })
 
-
-// 根据主页的商品跳转详情页
-  if (localStorage.getItem("wares")) {
-  var arr = JSON.parse(localStorage.getItem('wares'))
-  // console.log(arr[0].code);
-  // [{"code":"12"},{"code":"11"},{"code":"10"}]
-  var code = arr[0].code
-}
-  
-
-  
-  if (!!code) {
-    $.ajax({
-      url: "../163-music/data/data.json",
-      type: "get",
-      dataType: "json",
-      success: function (json) {
-        $.each(json, function (index, item) {
-          if (item.code == code) {
-            // console.log(item);
-            $('.pointer').html("<i></i>"+item.title)
-            $('.f-ff2').text(item.title)
-            $('.j-flag').text(item.price)
-          }
-        })
-      }
-    })
-  }
 // 加入购物车渲染购物车页面
   $('.buy').click(function () {
     if (localStorage.getItem("wares")) {
@@ -142,9 +132,60 @@ if (localStorage.getItem("user")) {
     } else {
       var buyArr = []
     }
-    console.log(waresArr,buyArr);
+    console.log(waresArr, buyArr);
+    
     buyArr.push({ buys: waresArr[0].code, num: $('.text').val() })
     localStorage.setItem('buygoods', JSON.stringify(buyArr))
 })
 
+  //点击下面简图左右移动
+  // var distance = 0;
+  // $('.snav').find('ul').on('click', 'li', function () {
+
+    // if ($(this).attr("index") > 3 && $(this).attr("index") < $(this).parent().children().get(($(this).parent().children().length - 3)).getAttribute("index")+1) {
+    //   distance -= 94
+    //   $('li').animate({left: distance+'px'}, "fast")
+    // } else {
+    //   distance += 94
+    //   $('li').animate({left: distance+'px'}, "fast")
+    // }
+    // console.log(distance);
+    // console.log($(this).parent().children().length);
+    // console.log();
+    // console.log($(this).parent().children().get(($(this).parent().children().length - 3)).getAttribute("index"));
+
+  // })
+
+  var distance = 0;
+  $('.snav').on('click', function (e) {
+    if ($(this).find('li').position().left <= 0 && $(this).find('li').position().left >= -270 ) {
+      if(e.clientX - $('.snav').offset().left > 264 && e.clientX - $('.snav').offset().left <= 352){
+        distance -= 90;
+        $(this).find('li').animate({left: distance+'px'}, "fast")
+      }else if(e.clientX - $('.snav').offset().left > 352 && e.clientX - $('.snav').offset().left <= 440){
+        distance -= 180;
+        if (distance == -360) {
+          distance= -270
+        }
+        $(this).find('li').animate({left: distance+'px'}, "fast")
+      }
+    }
+    if ($(this).find('li').position().left <= -270 || $(this).find('li').position().left < 0) {
+      if (e.clientX - $('.snav').offset().left > 0 && e.clientX - $('.snav').offset().left <= 88) {
+        distance += 180;
+        if (distance == 90) {
+          distance= 0
+        }
+          $(this).find('li').animate({left: distance+'px'}, "fast")
+        } else if(e.clientX - $('.snav').offset().left > 88 && e.clientX - $('.snav').offset().left <= 176){
+          distance += 90;
+          $(this).find('li').animate({left: distance+'px'}, "fast")
+        }
+    }
+  })
+
+  // 顶部小火箭
+$(".m-back").click(function () {
+  $("html,body").stop().animate({ scrollTop: 0 }, 100);
+});
 })

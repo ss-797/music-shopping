@@ -68,6 +68,7 @@
     margin-right: 10px;
     background: #f9f9f9;
     border: 2px solid #fff;
+    position: relative;
 }
 .snav ul li.z-sel, .snav ul li:hover {
     border: 2px solid #d33a31;
